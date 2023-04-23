@@ -1,0 +1,59 @@
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: white;
+}
+
+button {
+  width: 100%;
+}
+
+.btn-secondary,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus {
+  background: #dadce0;
+  color: #202124;
+  border: 1px solid #dadce0;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.switch-button {
+  width: 60%;
+  border: 2px #dadce0 solid;
+  border-radius: 32px;
+  cursor: pointer;
+}
+
+.fx,
+.regular {
+  background-color: transparent;
+  border-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: 0;
+}
+
+#regular-div {
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+  background-color: #0d6efd;
+}
+
+#inverse-div {
+  border-top-right-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
+
+.switch-button > :nth-child(1) {
+  border-right: 2px #dadce0 solid;
+}
