@@ -24,9 +24,12 @@ function calculator(expression) {
 document.addEventListener("DOMContentLoaded", () => {
   const display = document.getElementById("calc-display");
   const history = document.getElementById("calc-history");
-  console.log(display);
+  //console.log(display);
   const keys = document.getElementsByClassName("btn");
-  console.log(keys);
+  //console.log(keys);
+
+  const mobileVersion = document.getElementById("mobile-version");
+  console.log(mobileVersion);
 
   const fx = document.getElementsByClassName("fx");
   const fx_div = document.getElementById("inverse-div");
@@ -59,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   for (let index = 0; index < keys.length; index++) {
     const button = keys[index];
-    console.log(button);
+    //console.log(button);
     button.addEventListener("click", function () {
       let value = button.innerHTML;
       if (value == "AC") {

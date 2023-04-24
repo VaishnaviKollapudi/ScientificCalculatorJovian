@@ -57,3 +57,30 @@ button {
 .switch-button > :nth-child(1) {
   border-right: 2px #dadce0 solid;
 }
+.inverse-calculator {
+  float: left;
+  width: 42.857142857142854%;
+}
+
+.numeric-calculator {
+  float: right;
+  width: 57.142857142857139%;
+}
+
+@media screen and (max-width: 785px) {
+  #mobile-version {
+    display: flex;
+  }
+
+  #desktop-version {
+    display: none;
+  }
+}
+@media screen and (min-width: 786px) {
+  #mobile-version {
+    display: none;
+  }
+  #desktop-version {
+    display: flex;
+  }
+}

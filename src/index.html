@@ -24,8 +24,10 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="text-center mt-3">Scientific Calculator</h1>
-      <div class="row">
+      <h1 class="text-center mt-3 mb-3">Scientific Calculator</h1>
+
+      <!--mobile-version-->
+      <div class="row" id="mobile-version">
         <div class="offset-2 col-8">
           <div class="card">
             <div class="card-body">
@@ -40,6 +42,7 @@
                 class="form-control form-control-lg mb-3"
                 type="text"
                 aria-label=".form-control-lg example"
+                placeholder="0"
               />
               <div id="regular-functions">
                 <div class="row gx-2 mb-2">
@@ -177,6 +180,154 @@
                 </div>
                 <div class="col-6 p-2 text-center" id="inverse-div">
                   <button class="fx">fx</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--desktop-version-->
+      <div class="row mb-3" id="desktop-version">
+        <div class="offset-1 col-10">
+          <div class="card">
+            <div class="card-body">
+              <div
+                style="float: right; color: rgb(149, 147, 147)"
+                id="calc-history"
+                class="mb-2"
+              ></div>
+              <input
+                id="calc-display"
+                readonly
+                class="form-control form-control-lg mb-3"
+                type="text"
+                aria-label=".form-control-lg example"
+              />
+              <div class="inverse-calculator pe-2">
+                <div class="row gx-2 gy-2">
+                  <div class="col-8">
+                    <button class="btn btn-secondary">Rad | deg</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary">x!</button>
+                  </div>
+
+                  <div class="col-4">
+                    <button class="btn btn-secondary">Inv</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary">sin</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary">ln</button>
+                  </div>
+
+                  <div class="col-4">
+                    <button class="btn btn-secondary">π</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary">cos</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary">log</button>
+                  </div>
+
+                  <div class="col-4">
+                    <button class="btn btn-secondary">e</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary">tan</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary">√</button>
+                  </div>
+
+                  <div class="col-4">
+                    <button class="btn btn-secondary">ANS</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary">EXP</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary">x^y</button>
+                  </div>
+                </div>
+              </div>
+              <div class="numeric-calculator">
+                <div class="row gx-2 mb-2">
+                  <div class="col-3">
+                    <button type="button" class="btn btn-secondary">(</button>
+                  </div>
+                  <div class="col-3">
+                    <button type="button" class="btn btn-secondary">)</button>
+                  </div>
+                  <div class="col-3">
+                    <button type="button" class="btn btn-secondary">%</button>
+                  </div>
+                  <div class="col-3">
+                    <button type="button" class="btn btn-secondary">AC</button>
+                  </div>
+                </div>
+
+                <div class="row gx-2 mb-2">
+                  <div class="col-3">
+                    <button class="btn btn-light">7</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-light">8</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-light">9</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-secondary">÷</button>
+                  </div>
+                </div>
+
+                <div class="row gx-2 mb-2">
+                  <div class="col-3">
+                    <button class="btn btn-light">4</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-light">5</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-light">6</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-secondary">×</button>
+                  </div>
+                </div>
+
+                <div class="row gx-2 mb-2">
+                  <div class="col-3">
+                    <button class="btn btn-light">1</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-light">2</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-light">3</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-secondary">-</button>
+                  </div>
+                </div>
+
+                <div class="row gx-2 mb-2">
+                  <div class="col-3">
+                    <button class="btn btn-light">0</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-light">.</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-primary">=</button>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-secondary">+</button>
+                  </div>
                 </div>
               </div>
             </div>
