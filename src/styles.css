@@ -66,12 +66,35 @@ button {
   float: right;
   width: 57.142857142857139%;
 }
+.btn-group {
+  width: 100%;
+}
+
+.btn-light:focus,
+.btn-secondary:focus {
+  box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.5);
+}
+
+.btn-secondary:disabled {
+  background: #dadce0;
+  color: #202124;
+  border: 1px solid #dadce0;
+}
+.form-control {
+  border: 0;
+}
+.form-control:focus {
+  box-shadow: none;
+}
+
+.border {
+  border-radius: 8px;
+}
 
 @media screen and (max-width: 785px) {
   #mobile-version {
     display: flex;
   }
-
   #desktop-version {
     display: none;
   }

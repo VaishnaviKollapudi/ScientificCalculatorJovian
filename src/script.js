@@ -22,14 +22,9 @@ function calculator(expression) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const display = document.getElementById("calc-display");
-  const history = document.getElementById("calc-history");
-  //console.log(display);
+  const display = document.getElementsByClassName("calc-display");
+  const history = document.getElementsByClassName("calc-history");
   const keys = document.getElementsByClassName("btn");
-  //console.log(keys);
-
-  const mobileVersion = document.getElementById("mobile-version");
-  console.log(mobileVersion);
 
   const fx = document.getElementsByClassName("fx");
   const fx_div = document.getElementById("inverse-div");
@@ -62,21 +57,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   for (let index = 0; index < keys.length; index++) {
     const button = keys[index];
-    //console.log(button);
     button.addEventListener("click", function () {
       let value = button.innerHTML;
-      if (value == "AC") {
+      if (value == "AC" || value == "CE") {
         currentValue = "";
-        display.value = currentValue;
-        history.innerHTML = currentValue;
+        display[0].value = currentValue;
+        display[1].value = currentValue;
+
+        history[0].innerHTML = "Ans = 0";
+        history[1].innerHTML = "Ans = 0";
       } else if (value == "=") {
-        history.innerHTML = currentValue + " =";
+        history[0].innerHTML = currentValue + " =";
+        history[1].innerHTML = currentValue + " =";
+
         currentValue = calculator(currentValue);
-        display.value = currentValue;
+        display[0].value = currentValue;
+        display[1].value = currentValue;
       } else {
         if (value == "%") value = "% ×";
         currentValue += value;
-        display.value = currentValue;
+        display[0].value = currentValue;
+        display[1].value = currentValue;
       }
     });
   }

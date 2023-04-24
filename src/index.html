@@ -20,6 +20,12 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <!--FontAwesome script-->
+    <script
+      src="https://kit.fontawesome.com/fec250f0a0.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -28,22 +34,26 @@
 
       <!--mobile-version-->
       <div class="row" id="mobile-version">
-        <div class="offset-2 col-8">
+        <div class="offset-1 col-10">
           <div class="card">
             <div class="card-body">
-              <div
-                style="float: right; color: rgb(149, 147, 147)"
-                id="calc-history"
-                class="mb-2"
-              ></div>
-              <input
-                id="calc-display"
-                readonly
-                class="form-control form-control-lg mb-3"
-                type="text"
-                aria-label=".form-control-lg example"
-                placeholder="0"
-              />
+              <div class="border border-3 mb-3 pt-2">
+                <i class="fa-solid fa-clock-rotate-left mb-2 ms-2"></i>
+                <div
+                  style="float: right; color: rgb(149, 147, 147)"
+                  class="mb-2 calc-history me-2"
+                >
+                  Ans = 0
+                </div>
+                <input
+                  readonly
+                  class="form-control form-control-lg mb-3 calc-display text-end"
+                  type="text"
+                  aria-label=".form-control-lg example"
+                  placeholder="0"
+                />
+              </div>
+
               <div id="regular-functions">
                 <div class="row gx-2 mb-2">
                   <div class="col-3">
@@ -128,7 +138,18 @@
                 style="display: none"
               >
                 <div class="col-6">
-                  <button class="btn btn-secondary">Rad | Deg</button>
+                  <div
+                    class="btn-group"
+                    role="group"
+                    aria-label="Basic example"
+                  >
+                    <button type="button" class="btn btn-secondary" disabled>
+                      Rad
+                    </button>
+                    <button type="button" class="btn btn-secondary" disabled>
+                      Deg
+                    </button>
+                  </div>
                 </div>
                 <div class="col-3">
                   <button class="btn btn-secondary">x!</button>
@@ -174,6 +195,7 @@
                 </div>
               </div>
 
+              <!--Switch Button-->
               <div class="row switch-button mt-5 ms-1">
                 <div class="col-6 p-2 text-center" id="regular-div">
                   <button class="regular" style="color: white">123</button>
@@ -192,22 +214,38 @@
         <div class="offset-1 col-10">
           <div class="card">
             <div class="card-body">
-              <div
-                style="float: right; color: rgb(149, 147, 147)"
-                id="calc-history"
-                class="mb-2"
-              ></div>
-              <input
-                id="calc-display"
-                readonly
-                class="form-control form-control-lg mb-3"
-                type="text"
-                aria-label=".form-control-lg example"
-              />
+              <div class="border border-3 mb-3 pt-2">
+                <i class="fa-solid fa-clock-rotate-left mb-2 ms-2"></i>
+                <div
+                  style="float: right; color: rgb(149, 147, 147)"
+                  class="mb-2 calc-history me-2"
+                >
+                  Ans = 0
+                </div>
+                <input
+                  readonly
+                  class="form-control form-control-lg mb-3 calc-display text-end"
+                  type="text"
+                  aria-label=".form-control-lg example"
+                  placeholder="0"
+                />
+              </div>
+
               <div class="inverse-calculator pe-2">
                 <div class="row gx-2 gy-2">
                   <div class="col-8">
-                    <button class="btn btn-secondary">Rad | deg</button>
+                    <div
+                      class="btn-group"
+                      role="group"
+                      aria-label="Basic example"
+                    >
+                      <button type="button" class="btn btn-secondary" disabled>
+                        Rad
+                      </button>
+                      <button type="button" class="btn btn-secondary" disabled>
+                        Deg
+                      </button>
+                    </div>
                   </div>
                   <div class="col-4">
                     <button class="btn btn-secondary">x!</button>
@@ -266,7 +304,7 @@
                     <button type="button" class="btn btn-secondary">%</button>
                   </div>
                   <div class="col-3">
-                    <button type="button" class="btn btn-secondary">AC</button>
+                    <button type="button" class="btn btn-secondary">CE</button>
                   </div>
                 </div>
 
