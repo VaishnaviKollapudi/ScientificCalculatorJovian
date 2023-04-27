@@ -143,10 +143,10 @@
                     role="group"
                     aria-label="Basic example"
                   >
-                    <button type="button" class="btn btn-secondary" disabled>
+                    <button type="button" class="btn-secondary" id="radMobile">
                       Rad
                     </button>
-                    <button type="button" class="btn btn-secondary" disabled>
+                    <button type="button" class="btn-secondary" id="degMobile">
                       Deg
                     </button>
                   </div>
@@ -155,40 +155,40 @@
                   <button class="btn btn-secondary">x!</button>
                 </div>
                 <div class="col-3">
-                  <button class="btn btn-secondary">Inv</button>
+                  <button class="btn-secondary ivn-button">Inv</button>
                 </div>
                 <div class="col-3">
-                  <button class="btn btn-secondary">sin</button>
+                  <button class="btn btn-secondary" id="sin-mobile">sin</button>
                 </div>
                 <div class="col-3">
-                  <button class="btn btn-secondary">ln</button>
+                  <button class="btn btn-secondary" id="ln-mobile">ln</button>
                 </div>
                 <div class="col-3">
                   <button class="btn btn-secondary">π</button>
                 </div>
                 <div class="col-3">
-                  <button class="btn btn-secondary">cos</button>
+                  <button class="btn btn-secondary" id="cos-mobile">cos</button>
                 </div>
                 <div class="col-3">
-                  <button class="btn btn-secondary">log</button>
+                  <button class="btn btn-secondary" id="log-mobile">log</button>
                 </div>
                 <div class="col-3">
                   <button class="btn btn-secondary">e</button>
                 </div>
                 <div class="col-3">
-                  <button class="btn btn-secondary">tan</button>
+                  <button class="btn btn-secondary" id="tan-mobile">tan</button>
                 </div>
                 <div class="col-3">
-                  <button class="btn btn-secondary">√</button>
+                  <button class="btn btn-secondary" id="root-mobile">√</button>
                 </div>
                 <div class="col-3">
-                  <button class="btn btn-secondary">Ans</button>
+                  <button class="btn btn-secondary" id="Ans-mobile">Ans</button>
                 </div>
                 <div class="col-3">
                   <button class="btn btn-secondary">EXP</button>
                 </div>
                 <div class="col-3">
-                  <button class="btn btn-secondary">x^y</button>
+                  <button class="btn btn-secondary" id="expo-mobile">x^y</button>
                 </div>
                 <div class="col-3">
                   <button class="btn btn-primary">=</button>
@@ -239,10 +239,10 @@
                       role="group"
                       aria-label="Basic example"
                     >
-                      <button type="button" class="btn btn-secondary" disabled>
+                      <button type="button" class="btn-secondary" id="rad">
                         Rad
                       </button>
-                      <button type="button" class="btn btn-secondary" disabled>
+                      <button type="button" class="btn-secondary" id="deg">
                         Deg
                       </button>
                     </div>
@@ -252,43 +252,45 @@
                   </div>
 
                   <div class="col-4">
-                    <button class="btn btn-secondary">Inv</button>
+                    <button class="btn-secondary ivn-button">Inv</button>
                   </div>
                   <div class="col-4">
-                    <button class="btn btn-secondary">sin</button>
+                    <button class="btn btn-secondary" id="sin">sin</button>
                   </div>
                   <div class="col-4">
-                    <button class="btn btn-secondary">ln</button>
+                    <button class="btn btn-secondary" id="ln">ln</button>
                   </div>
 
                   <div class="col-4">
                     <button class="btn btn-secondary">π</button>
                   </div>
                   <div class="col-4">
-                    <button class="btn btn-secondary">cos</button>
+                    <button class="btn btn-secondary" id="cos">cos</button>
                   </div>
                   <div class="col-4">
-                    <button class="btn btn-secondary">log</button>
-                  </div>
-
-                  <div class="col-4">
-                    <button class="btn btn-secondary">e</button>
-                  </div>
-                  <div class="col-4">
-                    <button class="btn btn-secondary">tan</button>
-                  </div>
-                  <div class="col-4">
-                    <button class="btn btn-secondary">√</button>
+                    <button class="btn btn-secondary" id="log">log</button>
                   </div>
 
                   <div class="col-4">
-                    <button class="btn btn-secondary">ANS</button>
+                    <button class="btn btn-secondary" id="e">e</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary" id="tan">tan</button>
+                  </div>
+                  <div class="col-4">
+                    <button class="btn btn-secondary" id="root">√</button>
+                  </div>
+
+                  <div class="col-4">
+                    <button class="btn btn-secondary" id="Ans">Ans</button>
                   </div>
                   <div class="col-4">
                     <button class="btn btn-secondary">EXP</button>
                   </div>
                   <div class="col-4">
-                    <button class="btn btn-secondary">x^y</button>
+                    <button class="btn btn-secondary" id="expo">
+                      x<sup>y</sup>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -372,6 +374,9 @@
           </div>
         </div>
       </div>
+
+      <!-- testing -->
+      <div id="test"></div>
     </div>
 
     <script src="./script.js"></script>
