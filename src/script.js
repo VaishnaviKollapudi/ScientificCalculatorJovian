@@ -1,10 +1,8 @@
 function calculator(expression) {
   let result;
   try {
-    if (expression == "% ×") return "%";
     let calculation = expression
       .replace("÷", "/")
-      .replace("% ×", "*0.01*")
       .replace("×", "*")
       .replace("log", "Math.log10")
       .replace("e", "Math.E")
@@ -41,13 +39,33 @@ function factorial(expression) {
   return getFactorial(calc);
 }
 
+function findPercentage(expression) {
+  if (expression.indexOf("%") == 0) return 0;
+  let ind = expression.indexOf("×");
+  // document.getElementById("test").innerHTML = expression.charAt(ind + 1);
+  if (expression.charAt(ind + 1) == "") return 0;
+  let calculation = expression.replace("% ×", "*0.01*");
+  return eval(calculation);
+}
+
 function exponent(expression) {
+  //document.getElementById("test").innerHTML = expression.indexOf("^");
+
+  if (expression.indexOf("^") == 0) return 0;
   expression = expression.replaceAll("^", "**");
+
   return eval(expression);
 }
 
-function radiansToDegrees(radians) {
+function degreesToRadians(radians) {
   let degrees = (Math.PI / 180) * radians;
+  console.log("=== changed to degrees ===" + degrees);
+  return degrees;
+}
+
+function degreesToRadiansInverse(value) {
+  let degrees = (180 / Math.PI) * value;
+  console.log("=== changed to degrees ===" + degrees);
   return degrees;
 }
 document.addEventListener("DOMContentLoaded", () => {
@@ -102,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("Ans").innerHTML = "Rnd";
         document.getElementById("log").innerHTML = "10" + "x".sup();
         document.getElementById("ln").innerHTML = "e" + "x".sup();
-        document.getElementById("expo").innerHTML = "√x" + "y".sup();
+        document.getElementById("expo").innerHTML = "y".sup() + "√x";
         document.getElementById("sin-mobile").innerHTML = "sin" + "-1".sup();
         document.getElementById("cos-mobile").innerHTML = "cos" + "-1".sup();
         document.getElementById("tan-mobile").innerHTML = "tan" + "-1".sup();
@@ -110,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("Ans-mobile").innerHTML = "Rnd";
         document.getElementById("log-mobile").innerHTML = "10" + "x".sup();
         document.getElementById("ln-mobile").innerHTML = "e" + "x".sup();
-        document.getElementById("expo-mobile").innerHTML = "√x" + "y".sup();
+        document.getElementById("expo-mobile").innerHTML = "y".sup() + "√x";
       } else if (count == 1) {
         count = 0;
         document.getElementById("sin").innerHTML = "sin";
@@ -189,8 +207,9 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (value == "=") {
         history[0].innerHTML = currentValue + " =";
         history[1].innerHTML = currentValue + " =";
-
-        if (currentValue.includes("!")) {
+        if (currentValue.includes("%")) {
+          currentValue = findPercentage(currentValue);
+        } else if (currentValue.includes("!")) {
           currentValue = factorial(currentValue);
         } else if (currentValue.includes("e^")) {
           let curr = currentValue;
@@ -198,38 +217,64 @@ document.addEventListener("DOMContentLoaded", () => {
           currentValue = Math.exp(par) ? Math.exp(par) : "ERROR";
         } else if (currentValue.includes("^") && !currentValue.includes("e")) {
           currentValue = exponent(currentValue);
-        } else if (currentValue.includes("arcsin")) {
+        }
+
+        //arc functions
+        else if (currentValue.includes("arcsin")) {
           let curr = currentValue;
           let par = curr.replace(/[^0-9]/g, "");
-          let parameter = mode == "radians" ? par : radiansToDegrees(par);
-          currentValue = Math.asin(parameter) ? Math.asin(parameter) : "ERROR";
+          let parameter =
+            mode == "radians"
+              ? Math.asin(par)
+              : degreesToRadiansInverse(Math.asin(par));
+          console.log("== paramater ==" + parameter);
+          if (par.length == 0) parameter = "ERROR";
+          currentValue = parameter != "ERROR" ? parameter : "ERROR";
         } else if (currentValue.includes("arccos")) {
           let curr = currentValue;
           let par = curr.replace(/[^0-9]/g, "");
-          let parameter = mode == "radians" ? par : radiansToDegrees(par);
-          currentValue = Math.acos(parameter) ? Math.acos(parameter) : "ERROR";
+          let parameter =
+            mode == "radians"
+              ? Math.acos(par)
+              : degreesToRadiansInverse(Math.acos(par));
+          currentValue = parameter != "ERROR" ? parameter : "ERROR";
         } else if (currentValue.includes("arctan")) {
           let curr = currentValue;
           let par = curr.replace(/[^0-9]/g, "");
-          let parameter = mode == "radians" ? par : radiansToDegrees(par);
-          currentValue = Math.atan(parameter) ? Math.atan(parameter) : "ERROR";
-        } else if (currentValue.includes("sin")) {
+          let parameter =
+            mode == "radians" ? par : degreesToRadiansInverse(par);
+          currentValue = parameter != "ERROR" ? parameter : "ERROR";
+        }
+
+        //trigo simple
+        else if (currentValue.includes("sin")) {
           let curr = currentValue;
           let par = curr.replace(/[^0-9]/g, "");
-          let parameter = mode == "radians" ? par : radiansToDegrees(par);
-          currentValue = Math.sin(parameter) ? Math.sin(parameter) : "ERROR";
+          console.log("par====> " + par);
+          let parameter = mode == "radians" ? par : degreesToRadians(par);
+          console.log("parameter====> " + parameter);
+
+          let flag = parameter.length == 0 ? "ERROR" : Math.sin(parameter);
+          console.log("flag===> " + flag);
+          currentValue = flag ? flag : "ERROR";
         } else if (currentValue.includes("cos")) {
           let curr = currentValue;
           let par = curr.replace(/[^0-9]/g, "");
-          let parameter = mode == "radians" ? par : radiansToDegrees(par);
-          currentValue = Math.cos(parameter) ? Math.cos(parameter) : "ERROR";
+          let parameter = mode == "radians" ? par : degreesToRadians(par);
+          let flag = parameter.length == 0 ? "ERROR" : Math.cos(parameter);
+          currentValue = flag ? flag : "ERROR";
         } else if (currentValue.includes("tan")) {
           let curr = currentValue;
           let par = curr.replace(/[^0-9]/g, "");
-          let parameter = mode == "radians" ? par : radiansToDegrees(par);
-          currentValue = Math.tan(parameter) ? Math.tan(parameter) : "ERROR";
+          let parameter = mode == "radians" ? par : degreesToRadians(par);
+          let flag = parameter.length == 0 ? "ERROR" : Math.tan(parameter);
+          currentValue = flag ? flag : "ERROR";
         } else {
           currentValue = calculator(currentValue);
+        }
+        //check if NaN
+        if (isNaN(currentValue)) {
+          currentValue = "ERROR";
         }
         display[0].value = currentValue;
         display[1].value = currentValue;
@@ -237,8 +282,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (value == "%") value = "% ×";
         if (value == "x!") value = "!";
         if (
-          value.includes("x<sup>y</sup>") &&
-          !value.includes("√x<sup>y</sup>")
+          (value.includes("x<sup>y</sup>") || value.includes("x^y")) &&
+          !value.includes("<sup>y</sup>√x")
         )
           value = "^";
         if (value.includes("sin<sup>-1</sup>")) value = "arcsin";
@@ -247,9 +292,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (value.includes("x<sup>2</sup>")) value = "^2";
         if (value.includes("10<sup>x</sup>")) value = "10^";
         if (value.includes("e<sup>x</sup>")) value = "e^";
-        if (value.includes("√x<sup>y</sup>")) value = "^1/";
+        if (value.includes("<sup>y</sup>√x")) value = "^(1/";
 
         currentValue += value;
+        if (isNaN(currentValue)) {
+          currentValue = "ERROR";
+        }
         display[0].value = currentValue;
         display[1].value = currentValue;
       }
