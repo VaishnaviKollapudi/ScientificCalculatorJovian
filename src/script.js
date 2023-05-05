@@ -295,9 +295,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (value.includes("<sup>y</sup>√x")) value = "^(1/";
 
         currentValue += value;
-        if (isNaN(currentValue)) {
-          currentValue = "ERROR";
-        }
         display[0].value = currentValue;
         display[1].value = currentValue;
       }
