@@ -250,12 +250,8 @@ document.addEventListener("DOMContentLoaded", () => {
         else if (currentValue.includes("sin")) {
           let curr = currentValue;
           let par = curr.replace(/[^0-9]/g, "");
-          console.log("par====> " + par);
           let parameter = mode == "radians" ? par : degreesToRadians(par);
-          console.log("parameter====> " + parameter);
-
           let flag = parameter.length == 0 ? "ERROR" : Math.sin(parameter);
-          console.log("flag===> " + flag);
           currentValue = flag ? flag : "ERROR";
         } else if (currentValue.includes("cos")) {
           let curr = currentValue;
@@ -271,10 +267,6 @@ document.addEventListener("DOMContentLoaded", () => {
           currentValue = flag ? flag : "ERROR";
         } else {
           currentValue = calculator(currentValue);
-        }
-        //check if NaN
-        if (isNaN(currentValue)) {
-          currentValue = "ERROR";
         }
         display[0].value = currentValue;
         display[1].value = currentValue;
